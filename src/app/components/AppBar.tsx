@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SigninButton from "./SigninButton";
 import { useSession } from "next-auth/react";
 import UserInfo from "./UserInfo";
@@ -14,7 +14,6 @@ export default function AppBar() {
           <SigninButton />
         </div>
       </div>
-      {/* <SigninButton /> */}
     </header>
   );
 }

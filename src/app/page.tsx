@@ -1,11 +1,10 @@
 import Image from "next/image";
+import MessagesList from "./components/MessagesList";
 
-export default function Home({session}:any) {
-  console.log(session);
+export default function Home({ session }: any) {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>Giriş Yap</div>
-      <div></div>
+    <main className="flex flex-1 flex-col items-center justify-between px-5">
+      <MessagesList />
     </main>
   );
 }

@@ -26,7 +26,7 @@ import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
   const currentUser = request.cookies.get("next-auth.session-token")?.value;
-  console.log(currentUser);
+  // console.log(currentUser);
 
   if (currentUser && request.nextUrl.pathname.startsWith("/login")) {
     return Response.redirect(new URL("/", request.url));
