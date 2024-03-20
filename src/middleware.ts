@@ -22,7 +22,7 @@
 
 // export const config = { matcher: ["/private"] };
 
-import type { NextRequest } from "next/server";
+import { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
   const currentUser = request.cookies.get("next-auth.session-token")?.value;
@@ -32,11 +32,10 @@ export function middleware(request: NextRequest) {
     return Response.redirect(new URL("/", request.url));
   }
 
-  if (!currentUser && !request.nextUrl.pathname.startsWith("/login")) {
+  else if (!currentUser && !request.nextUrl.pathname.startsWith("/login")) {
     return Response.redirect(new URL("/login", request.url));
   }
 }
-
 export const config = {
   matcher: ["/((?!api|_next/static|_next/image|.*\\.png$).*)"],
 };
