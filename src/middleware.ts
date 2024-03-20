@@ -25,7 +25,7 @@
 import { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
-  const currentUser = request.cookies.get("next-auth.session-token")?.value;
+  const currentUser = request.cookies.get("next-auth.session-token")?.value ??request.cookies.get("__Secure-next-auth.session-token")?.value  ;
   // console.log(currentUser);
 
   if (currentUser && request.nextUrl.pathname.startsWith("/login")) {
